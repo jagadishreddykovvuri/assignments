@@ -1,0 +1,19 @@
+.Size{
+    width:100px;
+    height: 100px;
+    margin-right:20px;
+}
+.Normal{
+
+}
+.Rounded{
+    border-radius: 30px;
+}
+.Circle{
+    border-radius: 50px;
+}
+.image{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,11 @@
+.Dropper{
+    width: 250px;
+    height: 40px;
+    margin-bottom:20px;
+}
+.bodys{
+    display:flex;
+}
+.but{
+    margin-left:80px;
+}

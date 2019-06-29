@@ -1,0 +1,18 @@
+.prosize{
+    width:40px;
+    height:40px;
+    border-radius: 25px;
+}
+.prodiv{
+    display: flex;
+    align-items: center;
+}
+.message{
+    margin-left: 80px;
+    margin-top: 0px;
+    white-space: pre-line;
+
+}
+.total{
+    border: solid;
+}

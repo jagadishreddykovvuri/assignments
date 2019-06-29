@@ -1,0 +1,24 @@
+.WellDone{
+    background-color: #ACDF87;
+
+}
+.HeadsUp{
+    background-color: #ADD8E6;
+}
+.Warning{
+    background-color: #ffffe0;
+}
+.OhSnap{
+    background-color:#FFA07A;
+}
+
+.size{
+    width:60%;
+    height:50px;
+    padding-left:10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    
+}
