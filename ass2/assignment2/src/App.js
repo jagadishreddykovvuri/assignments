@@ -9,11 +9,10 @@ import DropDown from './components/Dropdown'
 import Disabler from './components/Disabler'
 import Stopwatch from './components/Stopwatch'
 import Chat from './components/Chat'
-//import chalk from 'chalk';
 
 function App() {
   return (
-    <div>
+     <div>
         <h1>Strike text</h1>
         <StrikeText Text="hi how are you"/>
         <h1>Images</h1>

@@ -1,4 +1,4 @@
-var studentlist=[{"name" : "John","id": 1,"gpa" : 7.8},{"name" : "Rick","id": 2,"gpa" : 3.9},{"name" : "Lisa","id": 3,"gpa" : 8.9},{"name" : "John","id": 1,"gpa" : 8.9}]
+function grade_separation(studentlist){
 var out=[]
 var d=0,a=0,b=0,c=0,f=0
 
@@ -45,3 +45,5 @@ for(var i=0;i<studentlist.length;i++){
 }
 console.log(out)
 console.log("Distintion:"+d+"\n A grade:"+a+"\n B grade:"+b+"\n C grade:"+c+"\nFail:"+f)
+}
+grade_separation([{"name" : "John","id": 1,"gpa" : 7.8},{"name" : "Rick","id": 2,"gpa" : 3.9},{"name" : "Lisa","id": 3,"gpa" : 8.9},{"name" : "John","id": 1,"gpa" : 8.9}])

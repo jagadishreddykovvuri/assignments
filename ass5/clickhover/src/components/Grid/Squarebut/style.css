@@ -1,0 +1,17 @@
+
+.rotation
+{
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+}
+.butSize{
+    width: 100px;
+    height:100px;
+    background-color:greenyellow;
+    -webkit-transition: transform 2s;
+    transition: transform 2s;
+}
+.scale{
+    
+    transform: rotateY(180deg);
+}

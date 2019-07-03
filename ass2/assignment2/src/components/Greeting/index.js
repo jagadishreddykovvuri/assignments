@@ -28,12 +28,14 @@ handleChange(event){
 }
 
 handleClick = (e) => {
+  if(this.state.value!=''){
     this.setState({
       Name:"Hello "+this.state.value+", Have a nice day",
       value:'',
       focus:''
       
     });
+  }
   }
 
 

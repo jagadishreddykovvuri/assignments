@@ -72,16 +72,11 @@ var a={
              console.log("that car not avaliable")
         }   
     else{
-        if(a.Wishlist.indexOf(cars[arr.carslist[k].id-1])==-1){
-            console.log("first add to wishlist")
-        }
-        else{
             a.ownedlist.push(arr.carslist[k])
             console.log("required car owned")
             showroom.sellcar(obj)
             var r=a.Wishlist.indexOf(arr.carslist[k])
             a.Wishlist.splice(r,1)
-        }
     }}
   }
 var showroom={

@@ -6,16 +6,23 @@ import './styles.css'
 class Stopwatch extends Component {
     constructor(props) {
         super(props);
+        this.sec=0
+        this.min=0
+        this.ls=0
+        this.lm=0
+        this.t=0
+
+
+
+
         this.state = {
-            min:0,
-            sec:0,
             vsec:'00',
             vmin:'00',
-            lm:0,
-            ls:0,
-            t:0,
             lapmin:[]
              };
+
+
+             
           this.onstart=this.onstart.bind(this);
           this.onstop=this.onstop.bind(this);
           this.onstart1=this.onstart1.bind(this);
@@ -24,22 +31,23 @@ class Stopwatch extends Component {
          
        }
        onstart1(event){
-         if(this.state.sec===59){
-          this.setState({sec:-1});
-          this.setState({min:this.state.min+1});
-          if (this.state.min < 10) {
-            this.setState({vmin:"0" + this.state.min});}
+         if(this.sec===59){
+          this.sec=-1
+          this.min=this.min+1
+          if (this.min < 10) {
+            this.setState({vmin:"0" + this.min});}
             else{
-              this.setState({vmin: this.state.min});
+              this.setState({vmin: this.min});
             }
          }
-         if(this.state.min===59){
-          this.setState({min:0});}
-        this.setState({sec:this.state.sec+1});
-           if (this.state.sec < 10) {
-            this.setState({vsec:"0" + this.state.sec});}
+         if(this.min===59){
+          this.min=0
+        }
+        this.sec=this.sec+1
+           if (this.sec < 10) {
+            this.setState({vsec:"0" + this.sec});}
             else{
-              this.setState({vsec: this.state.sec});
+              this.setState({vsec: this.sec});
             }
             this.onstart()
             
@@ -48,21 +56,24 @@ class Stopwatch extends Component {
            
            
            onstart(event){
-            this.setState({t:setTimeout(this.onstart1,1000)});
+            this.t=setTimeout(this.onstart1,1000)
            }
 
            
            
            
            onstop(event){
-             clearTimeout(this.state.t)
+             clearTimeout(this.t)
 
            }
 
 
            onreset(event){
-            this.setState({t:0,
-              vmin:'00',vsec:'00',sec:0,min:0,lapmin:[],lapsec:[]});
+            this.setState({
+              vmin:'00',vsec:'00',lapmin:[]});
+              this.sec=0
+              this.t=0
+              this.min=0
             }
 
 
@@ -75,17 +86,17 @@ class Stopwatch extends Component {
                 var k=this.state.lapmin.length+1
                 var m=0;
                 var s=0;
-                if(this.state.ls>this.state.sec){
-                  s=this.state.ls-this.state.sec
+                if(this.ls>this.sec){
+                  s=this.ls-this.sec
                 }
                 else{
-                  s=this.state.sec-this.state.ls
+                  s=this.sec-this.ls
                 }
-                if(this.state.lm>this.state.min){
-                  m=this.state.lm-this.state.min
+                if(this.lm>this.min){
+                  m=this.lm-this.min
                 }
                 else{
-                  m=this.state.min-this.state.lm
+                  m=this.min-this.lm
                 }
                 if (s < 10) {
                   s="0" + s}
@@ -94,10 +105,10 @@ class Stopwatch extends Component {
                   }
               var joined1 = this.state.lapmin.concat("#"+k+"  "+this.state.vmin+":"+this.state.vsec+" "+m+":"+s+'\n');
               this.setState({
-                ls:this.state.sec,
-                lm:this.state.min,
                 lapmin:joined1
               });
+              this.lm=this.min
+              this.ls=this.sec
               console.log(this.state.lapmin.length)}
             }
 
