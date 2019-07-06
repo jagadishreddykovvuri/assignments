@@ -27,7 +27,7 @@ function App() {
         <h1>Greeting</h1>
         <Greeting/>
         <h1>Favorite Dessert</h1>
-        <Favorite flavour={["Vanilla","ButterScotch","Chocolate","Strawberry"]}/>
+        <Favorite flavour={["Vanilla","ButterScotch","Chocolate","Strawberry","jagadish"]}/>
         <h1>Checkbox</h1>
         <Checkbox cities={["Hyderabad","Bangalore","Delhi","Mumbai"]}/>
         <h1>DropDown</h1>

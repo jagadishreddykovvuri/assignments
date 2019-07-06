@@ -1,7 +1,9 @@
 function resultant_mul(inputarray,mul){
-  var output=input.map(myFunction)
+  var output=inputarray.map(myFunction)
       function myFunction(num) {
-          return num * mul;
+          const result = num * mul;
+        
+          
        }
        console.log(output)
       }

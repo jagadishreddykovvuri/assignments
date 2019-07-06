@@ -9,4 +9,4 @@ function long_word(string){
   }
   console.log(word)
 }
-long_word("You progress the nation follows")
+long_word("You progress the nation follows strengthen")

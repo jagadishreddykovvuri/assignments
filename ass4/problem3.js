@@ -18,4 +18,4 @@ function find_types_count(array){
 console.log("number count "+nc)
 console.log("string count "+sc)
 console.log("object count "+oc)}
-find_types_count([1, 2, "Ram", {name: 'Sita'}])
+find_types_count([1, 2, "Ram", {name: 'Sita'},"",'',[1],false])

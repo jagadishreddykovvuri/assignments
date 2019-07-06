@@ -133,7 +133,7 @@ class Stopwatch extends Component {
      <p className="wrap"><b>{this.state.lapmin}</b></p>
      </div>
      <div>
-     <button onClick={this.onstart}>start</button>
+     <button onClick={this.onstart} >start</button>
      <button onClick={this.onstop}>stop</button>
      <button onClick={this.onlap}>lap</button>
      <button onClick={this.onreset}>reset</button></div>
