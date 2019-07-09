@@ -4,9 +4,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
-    background-color:white;
-    color: black;
+    background-color:rgb(34, 28, 122);
+    color: white;
     font :bold;
 }
 .Element_container{
@@ -98,18 +97,29 @@ input.cmn-toggle-round + label {
       align-items: center;
   }
   .theme{
-    background-color:rgb(34, 28, 122);
-    color: white;
+    background-color:white;
+    color: black;
     font :bold;
 }
 /* grid css*/
 
-
+.grid{
+  width:900px;
+  height: 900px;
+  display:flex;
+  justify-content:center;
+  align-items: center;
+}
 
 .Grid_container{
     width:900px;
     height: 900px;
     display:grid;
+    transition:0.5s;
+}
+.f{
+  width: 900px;
+  height:900px;
 }
 
   

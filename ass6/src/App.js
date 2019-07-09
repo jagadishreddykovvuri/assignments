@@ -4,7 +4,7 @@ import './App.css'
 function App() {
   return (
     <>
-    <Fullcontainer/>
+    <Fullcontainer winlevel={3} />
     </>
   );
 }
