@@ -38,6 +38,7 @@ class Fullcontainer extends Component {
                     level:0
                     })
                   },1000)
+                
             }
             if(this.count===this.state.level+3){
                 setTimeout( () => {
@@ -49,6 +50,7 @@ class Fullcontainer extends Component {
             }
          }
         squareComponent(n){
+        
             var Squarearray=[]
             if(this.state.level<this.props.winlevel){
             var random=this.randomGenerator(n)
@@ -63,7 +65,10 @@ class Fullcontainer extends Component {
             return Squarearray
         }
         else{
-            Squarearray.push(<h1>Congratulations</h1>)
+            alert("congratulations")
+            this.setState({
+                level:0
+            })
             return Squarearray
         }
         }
