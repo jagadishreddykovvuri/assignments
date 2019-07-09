@@ -8,7 +8,8 @@ class Fullcontainer extends Component {
         this.count=0
        this.state = {
            Background_class:'',
-           level:0
+           level:0,
+           randomValues:this.randomGenerator(3)
              };
              this.handletoggle=this.handletoggle.bind(this);
              this.randomGenerator=this.randomGenerator.bind(this);
@@ -35,6 +36,7 @@ class Fullcontainer extends Component {
                 setTimeout( () => {
                     this.count=0
                     this.setState({
+                    randomValues:this.randomGenerator(3),
                     level:0
                     })
                   },1000)
@@ -44,6 +46,7 @@ class Fullcontainer extends Component {
                 setTimeout( () => {
                     this.count=0
                     this.setState({
+                    randomValues:this.randomGenerator(this.state.level+3+1),
                     level:this.state.level+1
                     })
                 },1000)
@@ -53,9 +56,8 @@ class Fullcontainer extends Component {
         
             var Squarearray=[]
             if(this.state.level<this.props.winlevel){
-            var random=this.randomGenerator(n)
-            for(var i=0;i<n*n;i++){
-                if(random.includes(i)){
+                for(var i=0;i<n*n;i++){
+                if(this.state.randomValues.includes(i)){
                     Squarearray.push(<Square id={i} highlight_class="hightlightcolor" checking={this.checker} time={n} size={n}/>)
                 }
                 else{
@@ -67,7 +69,8 @@ class Fullcontainer extends Component {
         else{
             alert("congratulations")
             this.setState({
-                level:0
+                level:0,
+                randomValues:this.randomGenerator(3)
             })
             return Squarearray
         }
