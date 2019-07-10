@@ -14,7 +14,7 @@ class ProductTable extends Component {
             lastCategory=item.category
         });
         return(
-            <>
+            <div>
             <thead>
             <tr>
                 <td><th>Name</th></td>
@@ -22,7 +22,7 @@ class ProductTable extends Component {
             </tr>
             </thead>
             <tbody>{data}</tbody>
-            </>
+            </div>
         )
     }
 

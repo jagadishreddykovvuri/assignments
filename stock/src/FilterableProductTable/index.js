@@ -32,7 +32,6 @@ class FilterableProductTable extends Component{
             result=result.filter(item =>item.stocked===true)
         }
         result=result.filter(item =>item.name.includes(this.state.searchValue))
-        console.log(result)
         return(
             <>
             <div>
