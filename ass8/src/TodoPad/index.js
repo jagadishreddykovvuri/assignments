@@ -10,34 +10,32 @@ class TodoPad extends Component {
       todoList: []
     };
   }
-  getTodo = value => {
+  onAddTodo = value => {
     this.randomid = this.randomid + 1;
-    var todo = { id: "", task: "", taskStatus: false };
-    todo.id = this.randomid;
-    todo.task = value;
-    var join = this.state.todoList.concat(todo);
+    const todo = { id: this.randomid, task: value, taskStatus: false };
     this.setState({
-      todoList: join
+      todoList: this.state.todoList.concat(todo)
     });
   };
-  isDone = item => {
-    var array = this.state.todoList;
-    var index = array.indexOf(item);
+  toggleTaskDone = item => {
+    let todoList = this.state.todoList;
+    const index = todoList.indexOf(item);
     item.taskStatus = !item.taskStatus;
-    array[index] = item;
+    todoList[index] = item;
     this.setState({
-      todoList: array
+      todoList: todoList
     });
   };
   render() {
     return (
-      <>
-        <div className="backGround">
-          <h1 className="heading">Todos</h1>
-          <EnterTodo getting={this.getTodo} />
-          <TodoList array={this.state.todoList} isdone={this.isDone} />
-        </div>
-      </>
+      <div className="backGround">
+        <h1 className="heading">Todos</h1>
+        <EnterTodo onAddTodo={this.onAddTodo} />
+        <TodoList
+          todoList={this.state.todoList}
+          toggleTaskDone={this.toggleTaskDone}
+        />
+      </div>
     );
   }
 }

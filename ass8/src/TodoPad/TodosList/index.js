@@ -11,11 +11,9 @@ class TodoList extends Component {
     console.log(this.state.todoList);
     return (
       <>
-        {this.props.array.map(todo => {
+        {this.props.todoList.map(todo => {
           return (
-            <>
-              <TodoItem item={todo} isdone={this.props.isdone} />
-            </>
+            <TodoItem item={todo} toggleTask={this.props.toggleTaskDone} />
           );
         })}
       </>

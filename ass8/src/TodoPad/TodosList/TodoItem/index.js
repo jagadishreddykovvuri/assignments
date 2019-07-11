@@ -2,38 +2,30 @@ import React, { Component } from "react";
 import "./styles.css";
 
 class TodoItem extends Component {
-  constructor(props) {
-    super(props);
-    this.randomid = 0;
-    this.state = {};
-  }
   handleCheck = () => {
-    this.props.isdone(this.props.item);
+    this.props.toggleTask(this.props.item);
   };
   render() {
-    var printerItem = [];
-    if (this.props.item.taskStatus) {
-      printerItem.push(<strike>&nbsp;{this.props.item.task}</strike>);
-    } else {
-      printerItem.push(<p> &nbsp;{this.props.item.task}</p>);
-    }
+    const itemToggle = this.props.item.taskStatus ? (
+      <strike>&nbsp;{this.props.item.task}</strike>
+    ) : (
+      <p> &nbsp;{this.props.item.task}</p>
+    );
     return (
-      <>
-        <div className="todo-back">
-          <div className="checkWithItem">
-            <div>
-              <input
-                type="checkbox"
-                className="round"
-                id="checkbox"
-                onChange={this.handleCheck}
-              />
-            </div>
-            {printerItem}
+      <div className="todo-back">
+        <div className="checkWithItem">
+          <div>
+            <input
+              type="checkbox"
+              className="round"
+              id="checkbox"
+              onChange={this.handleCheck}
+            />
           </div>
-          <img src="assets/remove.png" className="removeIcon" />
+          {itemToggle}
         </div>
-      </>
+        <img src="assets/remove.png" className="removeIcon" />
+      </div>
     );
   }
 }
