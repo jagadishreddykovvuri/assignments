@@ -8,8 +8,7 @@ class SearchBar extends Component {
     handleCheck=(e)=>{
         this.props.checking()
     }
-    render()
-    {
+    render(){
         return(
             <>
             <div>
