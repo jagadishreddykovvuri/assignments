@@ -14,7 +14,7 @@ class TodoList extends Component {
         {this.props.array.map(todo => {
           return (
             <>
-              <TodoItem item={todo} />
+              <TodoItem item={todo} isdone={this.props.isdone} />
             </>
           );
         })}

@@ -7,9 +7,16 @@ class TodoItem extends Component {
     this.randomid = 0;
     this.state = {};
   }
-  handleCheck = () => {};
+  handleCheck = () => {
+    this.props.isdone(this.props.item);
+  };
   render() {
-    console.log(this.state.todoList);
+    var printerItem = [];
+    if (this.props.item.taskStatus) {
+      printerItem.push(<strike>&nbsp;{this.props.item.task}</strike>);
+    } else {
+      printerItem.push(<p> &nbsp;{this.props.item.task}</p>);
+    }
     return (
       <>
         <div className="todo-back">
@@ -22,8 +29,7 @@ class TodoItem extends Component {
                 onChange={this.handleCheck}
               />
             </div>
-            <br />
-            <p> &nbsp;{this.props.item.task}</p>
+            {printerItem}
           </div>
           <img src="assets/remove.png" className="removeIcon" />
         </div>

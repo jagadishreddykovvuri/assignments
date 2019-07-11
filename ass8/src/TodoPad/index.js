@@ -20,14 +20,22 @@ class TodoPad extends Component {
       todoList: join
     });
   };
+  isDone = object => {
+    var array = this.state.todoList;
+    var index = array.indexOf(object);
+    object.taskStatus = !object.taskStatus;
+    array[index] = object;
+    this.setState({
+      todoList: array
+    });
+  };
   render() {
-    console.log(this.state.todoList);
     return (
       <>
         <div className="backGround">
           <h1 className="heading">Todos</h1>
           <EnterTodo getting={this.getTodo} />
-          <TodoList array={this.state.todoList} />
+          <TodoList array={this.state.todoList} isdone={this.isDone} />
         </div>
       </>
     );
