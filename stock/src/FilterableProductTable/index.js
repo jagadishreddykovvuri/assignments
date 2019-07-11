@@ -22,6 +22,8 @@ class FilterableProductTable extends Component{
         this.setState({
             checked:!this.state.checked
         })
+        console.log("Hello");
+        
     }
 
 
