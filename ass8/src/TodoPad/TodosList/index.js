@@ -13,7 +13,11 @@ class TodoList extends Component {
       <>
         {this.props.todoList.map(todo => {
           return (
-            <TodoItem item={todo} toggleTask={this.props.toggleTaskDone} />
+            <TodoItem
+              item={todo}
+              toggleTask={this.props.toggleTaskDone}
+              onDeleting={this.props.onDeleting}
+            />
           );
         })}
       </>

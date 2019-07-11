@@ -17,11 +17,18 @@ class TodoPad extends Component {
       todoList: this.state.todoList.concat(todo)
     });
   };
-  toggleTaskDone = item => {
+  onToggleTaskDone = item => {
     let todoList = this.state.todoList;
     const index = todoList.indexOf(item);
     item.taskStatus = !item.taskStatus;
     todoList[index] = item;
+    this.setState({
+      todoList: todoList
+    });
+  };
+  onDeleteItem = item => {
+    let todoList = this.state.todoList;
+    todoList.splice(todoList.indexOf(item), 1);
     this.setState({
       todoList: todoList
     });
@@ -33,7 +40,8 @@ class TodoPad extends Component {
         <EnterTodo onAddTodo={this.onAddTodo} />
         <TodoList
           todoList={this.state.todoList}
-          toggleTaskDone={this.toggleTaskDone}
+          toggleTaskDone={this.onToggleTaskDone}
+          onDeleting={this.onDeleteItem}
         />
       </div>
     );

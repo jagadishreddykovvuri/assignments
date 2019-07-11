@@ -5,6 +5,11 @@ class TodoItem extends Component {
   handleCheck = () => {
     this.props.toggleTask(this.props.item);
   };
+  onDelete = () => {
+    if (window.confirm("you to delete task " + this.props.item.task)) {
+      this.props.onDeleting(this.props.item);
+    }
+  };
   render() {
     const itemToggle = this.props.item.taskStatus ? (
       <strike>&nbsp;{this.props.item.task}</strike>
@@ -24,7 +29,11 @@ class TodoItem extends Component {
           </div>
           {itemToggle}
         </div>
-        <img src="assets/remove.png" className="removeIcon" />
+        <img
+          src="assets/remove.png"
+          className="removeIcon"
+          onClick={this.onDelete}
+        />
       </div>
     );
   }
