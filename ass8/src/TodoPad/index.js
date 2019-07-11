@@ -27,7 +27,7 @@ class TodoPad extends Component {
         <div className="backGround">
           <h1 className="heading">Todos</h1>
           <EnterTodo getting={this.getTodo} />
-          <TodoList />
+          <TodoList array={this.state.todoList} />
         </div>
       </>
     );

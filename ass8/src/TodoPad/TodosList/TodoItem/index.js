@@ -7,16 +7,25 @@ class TodoItem extends Component {
     this.randomid = 0;
     this.state = {};
   }
+  handleCheck = () => {};
   render() {
     console.log(this.state.todoList);
     return (
       <>
         <div className="todo-back">
-          <div className="round">
-            <input type="checkbox" id="checkbox" />
-            <label for="checkbox" />
+          <div className="checkWithItem">
+            <div>
+              <input
+                type="checkbox"
+                className="round"
+                id="checkbox"
+                onChange={this.handleCheck}
+              />
+            </div>
+            <br />
+            <p> &nbsp;{this.props.item.task}</p>
           </div>
-          <p>jagadish</p>
+          <img src="assets/remove.png" className="removeIcon" />
         </div>
       </>
     );

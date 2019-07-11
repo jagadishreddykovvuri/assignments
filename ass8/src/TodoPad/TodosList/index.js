@@ -11,7 +11,13 @@ class TodoList extends Component {
     console.log(this.state.todoList);
     return (
       <>
-        <TodoItem />
+        {this.props.array.map(todo => {
+          return (
+            <>
+              <TodoItem item={todo} />
+            </>
+          );
+        })}
       </>
     );
   }
