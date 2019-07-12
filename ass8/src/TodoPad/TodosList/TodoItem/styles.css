@@ -21,7 +21,14 @@
 .round {
   width: 30px;
   height: 30px;
+  color: #2b833c;
 }
 .todo-back:hover {
   --v: visible;
+}
+.round:checked {
+  color: #2b833c;
+}
+.rounded {
+  border-radius: 15px;
 }

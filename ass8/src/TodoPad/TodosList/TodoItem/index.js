@@ -37,7 +37,7 @@ class TodoItem extends Component {
     );
     const itemToggle = this.props.item.taskStatus ? (
       <div className="checkWithItem">
-        <div>
+        <div className="rounded">
           <input
             type="checkbox"
             className="round"
@@ -50,7 +50,7 @@ class TodoItem extends Component {
       </div>
     ) : (
       <div className="checkWithItem">
-        <div>
+        <div className="rounded">
           <input
             type="checkbox"
             className="round"

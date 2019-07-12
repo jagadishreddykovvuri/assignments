@@ -44,6 +44,7 @@ class TodoList extends Component {
           todoList={this.props.todoList}
           filterCode={this.userFliter}
           onClear={this.props.onClear}
+          highLighter={this.state.filterCode}
         />
       </div>
     );

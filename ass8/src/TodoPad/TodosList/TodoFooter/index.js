@@ -15,19 +15,48 @@ class TodoFooter extends Component {
   };
 
   render() {
-    let UndoneLeft = 0;
+    let UndoneLeft = 0,
+      filterDiv;
     UndoneLeft = this.props.todoList.filter(function(item) {
       return item.taskStatus === false;
     });
     UndoneLeft = UndoneLeft.length;
-    return (
-      <div className="footer-back">
-        <p>{UndoneLeft + " "}item left</p>
+
+    if (this.props.highLighter === "All") {
+      filterDiv = (
         <div className="list-loader">
-          <p onClick={this.handleAll}>All</p>
+          <p className="border" onClick={this.handleAll}>
+            All
+          </p>
           <p onClick={this.handleActive}>Active</p>
           <p onClick={this.handleCompleted}>Completed</p>
         </div>
+      );
+    } else if (this.props.highLighter === "Active") {
+      filterDiv = (
+        <div className="list-loader">
+          <p onClick={this.handleAll}>All</p>
+          <p className="border" onClick={this.handleActive}>
+            Active
+          </p>
+          <p onClick={this.handleCompleted}>Completed</p>
+        </div>
+      );
+    } else {
+      filterDiv = (
+        <div className="list-loader">
+          <p onClick={this.handleAll}>All</p>
+          <p onClick={this.handleActive}>Active</p>
+          <p className="border" onClick={this.handleCompleted}>
+            Completed
+          </p>
+        </div>
+      );
+    }
+    return (
+      <div className="footer-back">
+        <p>{UndoneLeft + " "}item left</p>
+        {filterDiv}
         <p onClick={this.handleClear}>Clear completed</p>
       </div>
     );

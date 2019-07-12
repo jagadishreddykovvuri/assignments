@@ -2,12 +2,20 @@
   height: 40px;
   background-color: white;
   margin-top: 4px;
+  margin-bottom: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #777777;
+  font-size: 14px;
+}
+.list-loader {
+  width: 230px;
+  height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.list-loader {
-  width: 230px;
-  display: flex;
-  justify-content: space-between;
+.border {
+  border: 4px solid rgba(175, 47, 47, 0.2);
 }
