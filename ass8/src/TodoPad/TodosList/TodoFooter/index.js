@@ -57,7 +57,9 @@ class TodoFooter extends Component {
       <div className="footer-back">
         <p>{UndoneLeft + " "}item left</p>
         {filterDiv}
-        <p onClick={this.handleClear}>Clear completed</p>
+        <p className="onhover" onClick={this.handleClear}>
+          Clear completed
+        </p>
       </div>
     );
   }

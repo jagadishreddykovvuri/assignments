@@ -33,11 +33,14 @@ class TodoItem extends Component {
     const task = this.state.isDoubleClick ? (
       <EnterTodo onEdit={this.onUpdate} task={this.props.item.task} />
     ) : (
-      <p onDoubleClick={this.onDoubleClick}> &nbsp;{this.props.item.task}</p>
+      <p className="taskStyle" onDoubleClick={this.onDoubleClick}>
+        {" "}
+        &nbsp;{this.props.item.task}
+      </p>
     );
     const itemToggle = this.props.item.taskStatus ? (
       <div className="checkWithItem">
-        <div className="rounded">
+        <div>
           <input
             type="checkbox"
             className="round"
@@ -50,7 +53,7 @@ class TodoItem extends Component {
       </div>
     ) : (
       <div className="checkWithItem">
-        <div className="rounded">
+        <div>
           <input
             type="checkbox"
             className="round"

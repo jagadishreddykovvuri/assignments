@@ -17,6 +17,19 @@ class TodoList extends Component {
   };
   render() {
     let todoList = this.props.todoList;
+    let footer = <div />;
+    console.log(todoList.length);
+    if (todoList.length > 0) {
+      console.log(todoList.length);
+      footer = (
+        <TodoFooter
+          todoList={this.props.todoList}
+          filterCode={this.userFliter}
+          onClear={this.props.onClear}
+          highLighter={this.state.filterCode}
+        />
+      );
+    }
     if (this.state.filterCode === "Active") {
       todoList = todoList.filter(function(item) {
         return item.taskStatus === false;
@@ -40,12 +53,7 @@ class TodoList extends Component {
             />
           );
         })}
-        <TodoFooter
-          todoList={this.props.todoList}
-          filterCode={this.userFliter}
-          onClear={this.props.onClear}
-          highLighter={this.state.filterCode}
-        />
+        {footer}
       </div>
     );
   }
