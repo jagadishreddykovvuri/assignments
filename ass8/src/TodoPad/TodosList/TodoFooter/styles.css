@@ -1,0 +1,13 @@
+.footer-back {
+  height: 40px;
+  background-color: white;
+  margin-top: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.list-loader {
+  width: 230px;
+  display: flex;
+  justify-content: space-between;
+}

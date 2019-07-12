@@ -33,15 +33,35 @@ class TodoPad extends Component {
       todoList: todoList
     });
   };
+  onClearing = () => {
+    let todoList = this.state.todoList;
+    todoList = todoList.filter(function(item) {
+      return item.taskStatus === false;
+    });
+    this.setState({
+      todoList: todoList
+    });
+  };
+  onUpdate = (item, task) => {
+    let todoList = this.state.todoList;
+    const index = todoList.indexOf(item);
+    todoList[index].task = task;
+    this.setState({
+      todoList: todoList
+    });
+  };
   render() {
+    console.log(this.state.todoList);
     return (
       <div className="backGround">
         <h1 className="heading">Todos</h1>
-        <EnterTodo onAddTodo={this.onAddTodo} />
+        <EnterTodo onEdit={this.onAddTodo} task="" />
         <TodoList
           todoList={this.state.todoList}
           toggleTaskDone={this.onToggleTaskDone}
           onDeleting={this.onDeleteItem}
+          onClear={this.onClearing}
+          onUpdate={this.onUpdate}
         />
       </div>
     );

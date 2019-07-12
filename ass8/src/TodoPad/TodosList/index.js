@@ -1,26 +1,51 @@
 import React, { Component } from "react";
 import "./styles.css";
 import TodoItem from "./TodoItem";
+import TodoFooter from "./TodoFooter";
 class TodoList extends Component {
   constructor(props) {
     super(props);
     this.randomid = 0;
-    this.state = {};
+    this.state = {
+      filterCode: "All"
+    };
   }
+  userFliter = filterValue => {
+    this.setState({
+      filterCode: filterValue
+    });
+  };
   render() {
-    console.log(this.state.todoList);
+    let todoList = this.props.todoList;
+    if (this.state.filterCode === "Active") {
+      todoList = todoList.filter(function(item) {
+        return item.taskStatus === false;
+      });
+    } else if (this.state.filterCode === "Completed") {
+      todoList = todoList.filter(function(item) {
+        return item.taskStatus === true;
+      });
+    } else {
+    }
+    console.log(todoList);
     return (
-      <>
-        {this.props.todoList.map(todo => {
+      <div>
+        {todoList.map(todo => {
           return (
             <TodoItem
               item={todo}
               toggleTask={this.props.toggleTaskDone}
               onDeleting={this.props.onDeleting}
+              onUpdate={this.props.onUpdate}
             />
           );
         })}
-      </>
+        <TodoFooter
+          todoList={this.props.todoList}
+          filterCode={this.userFliter}
+          onClear={this.props.onClear}
+        />
+      </div>
     );
   }
 }
