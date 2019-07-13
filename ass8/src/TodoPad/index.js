@@ -5,15 +5,16 @@ import TodoList from "./TodosList";
 class TodoPad extends Component {
   constructor(props) {
     super(props);
-    this.randomid = 0;
+    this.randomId = 0;
     this.state = {
       todoList: []
     };
   }
   onAddTodo = value => {
+    value = value.replace(/^\s+/g, "");
     if (value !== "") {
-      this.randomid = this.randomid + 1;
-      const todo = { id: this.randomid, task: value, taskStatus: false };
+      this.randomId = this.randomId + 1;
+      const todo = { id: this.randomId, task: value, taskStatus: false };
       this.setState({
         todoList: this.state.todoList.concat(todo)
       });
@@ -35,16 +36,16 @@ class TodoPad extends Component {
       todoList: todoList
     });
   };
-  onClearing = () => {
+  // TODO: onClearCompleted
+
+  onClearCompletedTask = () => {
     let todoList = this.state.todoList;
-    todoList = todoList.filter(function(item) {
-      return item.taskStatus === false;
-    });
     this.setState({
-      todoList: todoList
+      todoList: todoList.filter(todo => !todo.taskStatus)
     });
   };
-  onUpdate = (item, task) => {
+  // TODO: onupdatetask
+  onUpdateTask = (item, task) => {
     let todoList = this.state.todoList;
     const index = todoList.indexOf(item);
     todoList[index].task = task;
@@ -53,19 +54,19 @@ class TodoPad extends Component {
     });
   };
   render() {
-    console.log(this.state.todoList);
     return (
       <div className="background">
         <div className="todo-pad">
           <h1 className="heading">Todos</h1>
           <div class="stack-shadow">
-            <EnterTodo onEdit={this.onAddTodo} task="" />
+            <EnterTodo onPressEnter={this.onAddTodo} task="" />
+
             <TodoList
               todoList={this.state.todoList}
-              toggleTaskDone={this.onToggleTaskDone}
-              onDeleting={this.onDeleteItem}
-              onClear={this.onClearing}
-              onUpdate={this.onUpdate}
+              onToggleTaskDone={this.onToggleTaskDone}
+              onDeleteItem={this.onDeleteItem}
+              onClearCompletedTask={this.onClearCompletedTask}
+              onUpdateTask={this.onUpdateTask}
             />
           </div>
         </div>

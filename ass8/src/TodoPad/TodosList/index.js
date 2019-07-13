@@ -2,40 +2,41 @@ import React, { Component } from "react";
 import "./styles.css";
 import TodoItem from "./TodoItem";
 import TodoFooter from "./TodoFooter";
+import filtersOfTodoList from "../constant";
 class TodoList extends Component {
   constructor(props) {
     super(props);
-    this.randomid = 0;
     this.state = {
-      filterCode: "All"
+      applyedFliterType: "All"
     };
   }
-  userFliter = filterValue => {
+  onChangeFilterType = filterValue => {
     this.setState({
-      filterCode: filterValue
+      applyedFliterType: filterValue
     });
   };
-  render() {
+  footer = () => {
     let todoList = this.props.todoList;
-    let footer = <div />;
+    let unDoneLeft = this.props.todoList.filter(item => !item.taskStatus);
     if (todoList.length > 0) {
-      footer = (
+      return (
         <TodoFooter
           todoList={this.props.todoList}
-          filterCode={this.userFliter}
-          onClear={this.props.onClear}
-          highLighter={this.state.filterCode}
+          onChangeFilterType={this.onChangeFilterType}
+          onClearCompletedTask={this.props.onClearCompletedTask}
+          applyedFliterType={this.state.applyedFliterType}
+          unDoneLeft={unDoneLeft.length}
         />
       );
     }
-    if (this.state.filterCode === "Active") {
-      todoList = todoList.filter(function(item) {
-        return item.taskStatus === false;
-      });
-    } else if (this.state.filterCode === "Completed") {
-      todoList = todoList.filter(function(item) {
-        return item.taskStatus === true;
-      });
+  };
+  render() {
+    console.log(filtersOfTodoList.all);
+    let todoList = this.props.todoList;
+    if (this.state.applyedFliterType === filtersOfTodoList.active) {
+      todoList = todoList.filter(item => !item.taskStatus);
+    } else if (this.state.applyedFliterType === filtersOfTodoList.completed) {
+      todoList = todoList.filter(item => item.taskStatus);
     } else {
     }
     return (
@@ -43,14 +44,15 @@ class TodoList extends Component {
         {todoList.map(todo => {
           return (
             <TodoItem
+              key={todo.id}
               item={todo}
-              toggleTask={this.props.toggleTaskDone}
-              onDeleting={this.props.onDeleting}
-              onUpdate={this.props.onUpdate}
+              onToggleTaskDone={this.props.onToggleTaskDone}
+              onDeleteItem={this.props.onDeleteItem}
+              onUpdateTask={this.props.onUpdateTask}
             />
           );
         })}
-        {footer}
+        {this.footer()}
       </div>
     );
   }

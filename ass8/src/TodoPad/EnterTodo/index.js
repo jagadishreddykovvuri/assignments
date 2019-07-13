@@ -3,14 +3,13 @@ import "./styles.css";
 class EnterTodo extends Component {
   constructor(props) {
     super(props);
-    this.randomid = 0;
     this.state = {
       task: this.props.task
     };
   }
   onPressEnter = event => {
     if (event.keyCode === 13) {
-      this.props.onEdit(event.target.value);
+      this.props.onPressEnter(event.target.value);
       this.setState({
         task: this.props.task
       });

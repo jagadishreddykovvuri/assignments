@@ -1,74 +1,64 @@
 import React, { Component } from "react";
 import "./styles.css";
+import filtersOfTodoList from "../../constant";
 class TodoFooter extends Component {
   handleAll = () => {
-    this.props.filterCode("All");
+    this.props.onChangeFilterType("All");
   };
   handleActive = () => {
-    this.props.filterCode("Active");
+    this.props.onChangeFilterType("Active");
   };
   handleCompleted = () => {
-    this.props.filterCode("Completed");
+    this.props.onChangeFilterType("Completed");
   };
   handleClear = () => {
-    this.props.onClear();
+    this.props.onClearCompletedTask();
+  };
+  filterDiv = () => {
+    return (
+      <div className="list-loader">
+        <p
+          className={
+            "clickable " +
+            (this.props.applyedFliterType === filtersOfTodoList.all
+              ? "border"
+              : "")
+          }
+          onClick={this.handleAll}
+        >
+          All
+        </p>
+        <p
+          className={
+            "clickable " +
+            (this.props.applyedFliterType === filtersOfTodoList.active
+              ? "border"
+              : "")
+          }
+          onClick={this.handleActive}
+        >
+          Active
+        </p>
+        <p
+          className={
+            "clickable " +
+            (this.props.applyedFliterType === filtersOfTodoList.completed
+              ? "border"
+              : "")
+          }
+          onClick={this.handleCompleted}
+        >
+          Completed
+        </p>
+      </div>
+    );
   };
 
   render() {
-    let unDoneLeft = 0,
-      filterDiv;
-    unDoneLeft = this.props.todoList.filter(function(item) {
-      return item.taskStatus === false;
-    });
-    unDoneLeft = unDoneLeft.length;
-
-    if (this.props.highLighter === "All") {
-      filterDiv = (
-        <div className="list-loader">
-          <p className="border clickable" onClick={this.handleAll}>
-            All
-          </p>
-          <p className="clickable" onClick={this.handleActive}>
-            Active
-          </p>
-          <p className="clickable" onClick={this.handleCompleted}>
-            Completed
-          </p>
-        </div>
-      );
-    } else if (this.props.highLighter === "Active") {
-      filterDiv = (
-        <div className="list-loader">
-          <p className="clickable" onClick={this.handleAll}>
-            All
-          </p>
-          <p className="border clickable" onClick={this.handleActive}>
-            Active
-          </p>
-          <p className="clickable" onClick={this.handleCompleted}>
-            Completed
-          </p>
-        </div>
-      );
-    } else {
-      filterDiv = (
-        <div className="list-loader">
-          <p className="clickable " onClick={this.handleAll}>
-            All
-          </p>
-          <p className="clickable" onClick={this.handleActive}>
-            Active
-          </p>
-          <p className="border clickable" onClick={this.handleCompleted}>
-            Completed
-          </p>
-        </div>
-      );
-    }
     return (
       <div className="footer-back">
-        <p>{unDoneLeft + " "}item left</p>
-        {filterDiv}
+        <p>{this.props.unDoneLeft + " "}item left</p>
+        {this.filterDiv()}
         <p className="onhover clickable" onClick={this.handleClear}>
           Clear completed
         </p>
