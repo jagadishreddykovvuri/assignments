@@ -52,7 +52,7 @@ class TodoItem extends Component {
       <div className="checkWithItem">
         <div>
           <img
-            className="check clickable"
+            className="check-box-size clickable"
             onClick={this.handleCheck}
             src="assets/checked.png"
           />
@@ -63,7 +63,7 @@ class TodoItem extends Component {
       <div className="checkWithItem">
         <div>
           <img
-            className="check clickable"
+            className="check-box-size clickable"
             onClick={this.handleCheck}
             src="assets/uncheck.png"
           />

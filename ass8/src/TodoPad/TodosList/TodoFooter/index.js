@@ -15,12 +15,12 @@ class TodoFooter extends Component {
   };
 
   render() {
-    let UndoneLeft = 0,
+    let unDoneLeft = 0,
       filterDiv;
-    UndoneLeft = this.props.todoList.filter(function(item) {
+    unDoneLeft = this.props.todoList.filter(function(item) {
       return item.taskStatus === false;
     });
-    UndoneLeft = UndoneLeft.length;
+    unDoneLeft = unDoneLeft.length;
 
     if (this.props.highLighter === "All") {
       filterDiv = (
@@ -67,7 +67,7 @@ class TodoFooter extends Component {
     }
     return (
       <div className="footer-back">
-        <p>{UndoneLeft + " "}item left</p>
+        <p>{unDoneLeft + " "}item left</p>
         {filterDiv}
         <p className="onhover clickable" onClick={this.handleClear}>
           Clear completed

@@ -8,17 +8,17 @@ class EnterTodo extends Component {
       task: this.props.task
     };
   }
-  pressedEnter = e => {
-    if (e.keyCode === 13) {
-      this.props.onEdit(e.target.value);
+  onPressEnter = event => {
+    if (event.keyCode === 13) {
+      this.props.onEdit(event.target.value);
       this.setState({
         task: this.props.task
       });
     }
   };
-  handleChange = e => {
+  handleChange = event => {
     this.setState({
-      task: e.target.value
+      task: event.target.value
     });
   };
 
@@ -29,7 +29,7 @@ class EnterTodo extends Component {
         className={"inputTag " + this.props.paddinggap}
         placeholder="What needs to be Done ?"
         onChange={this.handleChange}
-        onKeyDown={this.pressedEnter}
+        onKeyDown={this.onPressEnter}
         onBlur={this.props.onBlur}
       />
     );

@@ -55,10 +55,10 @@ class TodoPad extends Component {
   render() {
     console.log(this.state.todoList);
     return (
-      <div className="totalBackground">
-        <div className="backGround">
+      <div className="background">
+        <div className="todo-pad">
           <h1 className="heading">Todos</h1>
-          <div class="shadow">
+          <div class="stack-shadow">
             <EnterTodo onEdit={this.onAddTodo} task="" />
             <TodoList
               todoList={this.state.todoList}
