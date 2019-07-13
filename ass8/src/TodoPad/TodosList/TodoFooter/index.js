@@ -25,29 +25,41 @@ class TodoFooter extends Component {
     if (this.props.highLighter === "All") {
       filterDiv = (
         <div className="list-loader">
-          <p className="border" onClick={this.handleAll}>
+          <p className="border clickable" onClick={this.handleAll}>
             All
           </p>
-          <p onClick={this.handleActive}>Active</p>
-          <p onClick={this.handleCompleted}>Completed</p>
+          <p className="clickable" onClick={this.handleActive}>
+            Active
+          </p>
+          <p className="clickable" onClick={this.handleCompleted}>
+            Completed
+          </p>
         </div>
       );
     } else if (this.props.highLighter === "Active") {
       filterDiv = (
         <div className="list-loader">
-          <p onClick={this.handleAll}>All</p>
-          <p className="border" onClick={this.handleActive}>
+          <p className="clickable" onClick={this.handleAll}>
+            All
+          </p>
+          <p className="border clickable" onClick={this.handleActive}>
             Active
           </p>
-          <p onClick={this.handleCompleted}>Completed</p>
+          <p className="clickable" onClick={this.handleCompleted}>
+            Completed
+          </p>
         </div>
       );
     } else {
       filterDiv = (
         <div className="list-loader">
-          <p onClick={this.handleAll}>All</p>
-          <p onClick={this.handleActive}>Active</p>
-          <p className="border" onClick={this.handleCompleted}>
+          <p className="clickable " onClick={this.handleAll}>
+            All
+          </p>
+          <p className="clickable" onClick={this.handleActive}>
+            Active
+          </p>
+          <p className="border clickable" onClick={this.handleCompleted}>
             Completed
           </p>
         </div>
@@ -57,7 +69,7 @@ class TodoFooter extends Component {
       <div className="footer-back">
         <p>{UndoneLeft + " "}item left</p>
         {filterDiv}
-        <p className="onhover" onClick={this.handleClear}>
+        <p className="onhover clickable" onClick={this.handleClear}>
           Clear completed
         </p>
       </div>

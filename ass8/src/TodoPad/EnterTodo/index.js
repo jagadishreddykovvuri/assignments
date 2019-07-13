@@ -26,10 +26,11 @@ class EnterTodo extends Component {
     return (
       <input
         value={this.state.task}
-        className="inputTag"
+        className={"inputTag " + this.props.paddinggap}
         placeholder="What needs to be Done ?"
         onChange={this.handleChange}
         onKeyDown={this.pressedEnter}
+        onBlur={this.props.onBlur}
       />
     );
   }

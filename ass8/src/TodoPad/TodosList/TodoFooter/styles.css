@@ -1,5 +1,5 @@
 .footer-back {
-  height: 40px;
+  height: 30px;
   background-color: white;
   margin-top: 4px;
   margin-bottom: 4px;
@@ -8,6 +8,7 @@
   align-items: center;
   color: #777777;
   font-size: 14px;
+  padding: 10px;
 }
 .list-loader {
   width: 230px;
@@ -21,4 +22,7 @@
 }
 .onhover:hover {
   text-decoration: underline;
+}
+.clickable {
+  cursor: pointer;
 }

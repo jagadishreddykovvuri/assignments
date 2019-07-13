@@ -29,9 +29,19 @@ class TodoItem extends Component {
       isDoubleClick: false
     });
   };
+  handleBlur = () => {
+    this.setState({
+      isDoubleClick: false
+    });
+  };
   render() {
     const task = this.state.isDoubleClick ? (
-      <EnterTodo onEdit={this.onUpdate} task={this.props.item.task} />
+      <EnterTodo
+        onBlur={this.handleBlur}
+        onEdit={this.onUpdate}
+        task={this.props.item.task}
+        paddinggap="padding-gap"
+      />
     ) : (
       <p className="taskStyle" onDoubleClick={this.onDoubleClick}>
         {this.props.item.task}
@@ -42,7 +52,7 @@ class TodoItem extends Component {
       <div className="checkWithItem">
         <div>
           <img
-            className="check"
+            className="check clickable"
             onClick={this.handleCheck}
             src="assets/checked.png"
           />
@@ -53,7 +63,7 @@ class TodoItem extends Component {
       <div className="checkWithItem">
         <div>
           <img
-            className="check"
+            className="check clickable"
             onClick={this.handleCheck}
             src="assets/uncheck.png"
           />
@@ -68,7 +78,7 @@ class TodoItem extends Component {
 
         <img
           src="assets/remove.png"
-          className="removeIcon"
+          className="removeIcon clickable"
           onClick={this.onDelete}
         />
       </div>
