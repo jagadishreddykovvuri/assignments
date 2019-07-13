@@ -18,9 +18,7 @@ class TodoList extends Component {
   render() {
     let todoList = this.props.todoList;
     let footer = <div />;
-    console.log(todoList.length);
     if (todoList.length > 0) {
-      console.log(todoList.length);
       footer = (
         <TodoFooter
           todoList={this.props.todoList}
@@ -40,7 +38,6 @@ class TodoList extends Component {
       });
     } else {
     }
-    console.log(todoList);
     return (
       <div>
         {todoList.map(todo => {

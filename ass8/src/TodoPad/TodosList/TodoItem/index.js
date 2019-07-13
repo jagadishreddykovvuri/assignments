@@ -34,31 +34,28 @@ class TodoItem extends Component {
       <EnterTodo onEdit={this.onUpdate} task={this.props.item.task} />
     ) : (
       <p className="taskStyle" onDoubleClick={this.onDoubleClick}>
-        {" "}
-        &nbsp;{this.props.item.task}
+        {this.props.item.task}
       </p>
     );
+    console.log(this.props.item);
     const itemToggle = this.props.item.taskStatus ? (
       <div className="checkWithItem">
         <div>
-          <input
-            type="checkbox"
-            className="round"
-            id="checkbox"
-            onChange={this.handleCheck}
-            checked
+          <img
+            className="check"
+            onClick={this.handleCheck}
+            src="assets/checked.png"
           />
         </div>
-        <strike>{task}</strike>
+        <strike className="blur">{task}</strike>
       </div>
     ) : (
       <div className="checkWithItem">
         <div>
-          <input
-            type="checkbox"
-            className="round"
-            id="checkbox"
-            onChange={this.handleCheck}
+          <img
+            className="check"
+            onClick={this.handleCheck}
+            src="assets/uncheck.png"
           />
         </div>
         {task}
@@ -68,6 +65,7 @@ class TodoItem extends Component {
     return (
       <div className="todo-back">
         {itemToggle}
+
         <img
           src="assets/remove.png"
           className="removeIcon"
