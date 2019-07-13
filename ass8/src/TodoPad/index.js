@@ -36,7 +36,6 @@ class TodoPad extends Component {
       todoList: todoList
     });
   };
-  // TODO: onClearCompleted
 
   onClearCompletedTask = () => {
     let todoList = this.state.todoList;
@@ -44,14 +43,16 @@ class TodoPad extends Component {
       todoList: todoList.filter(todo => !todo.taskStatus)
     });
   };
-  // TODO: onupdatetask
   onUpdateTask = (item, task) => {
-    let todoList = this.state.todoList;
-    const index = todoList.indexOf(item);
-    todoList[index].task = task;
-    this.setState({
-      todoList: todoList
-    });
+    task = task.replace(/^\s+/g, "");
+    if (task !== "") {
+      let todoList = this.state.todoList;
+      const index = todoList.indexOf(item);
+      todoList[index].task = task;
+      this.setState({
+        todoList: todoList
+      });
+    }
   };
   render() {
     return (
