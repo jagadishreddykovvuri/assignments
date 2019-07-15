@@ -31,7 +31,6 @@ class TodoList extends Component {
     }
   };
   render() {
-    console.log(filtersOfTodoList.all);
     let todoList = this.props.todoList;
     if (this.state.applyedFliterType === filtersOfTodoList.active) {
       todoList = todoList.filter(item => !item.taskStatus);

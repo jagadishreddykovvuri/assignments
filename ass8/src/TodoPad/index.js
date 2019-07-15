@@ -6,6 +6,7 @@ class TodoPad extends Component {
   constructor(props) {
     super(props);
     this.randomId = 0;
+    this.todoList = [];
     this.state = {
       todoList: []
     };
